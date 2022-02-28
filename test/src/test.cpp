@@ -85,11 +85,21 @@ go_bandit( []()
         nm_assert_float( v.z, vals[2] );
         nm_assert_float( v.w, vals[3] );
       } );
-      it( "can store values to aligned array", [&]()
+      it( "can store values to aligned array (temporal)", [&]()
       {
         nmath_16b_align float vals[4] = { 0.0f };
         vec4f v( 9.9999999f, -435745.11f, 3482922.5434f, -11111111.0f );
-        v.store( vals );
+        v.storeTemporal( vals );
+        nm_assert_float( vals[0], 9.9999999f );
+        nm_assert_float( vals[1], -435745.11f );
+        nm_assert_float( vals[2], 3482922.5434f );
+        nm_assert_float( vals[3], -11111111.0f );
+      } );
+      it( "can store values to aligned array (nontemporal)", [&]()
+      {
+        nmath_16b_align float vals[4] = { 0.0f };
+        vec4f v( 9.9999999f, -435745.11f, 3482922.5434f, -11111111.0f );
+        v.storeNontemporal( vals );
         nm_assert_float( vals[0], 9.9999999f );
         nm_assert_float( vals[1], -435745.11f );
         nm_assert_float( vals[2], 3482922.5434f );
@@ -284,11 +294,21 @@ go_bandit( []()
         nm_assert_double( v.z, vals[2] );
         nm_assert_double( v.w, vals[3] );
       } );
-      it( "can store values to aligned array", [&]()
+      it( "can store values to aligned array (temporal)", [&]()
       {
         nmath_32b_align double vals[4] = { 0 };
         vec4d v( 9.9999999, -435745.11, 3482922.5434, -11111111 );
-        v.store( vals );
+        v.storeTemporal( vals );
+        nm_assert_double( vals[0], 9.9999999 );
+        nm_assert_double( vals[1], -435745.11 );
+        nm_assert_double( vals[2], 3482922.5434 );
+        nm_assert_double( vals[3], -11111111 );
+      } );
+      it( "can store values to aligned array (nontemporal)", [&]()
+      {
+        nmath_32b_align double vals[4] = { 0 };
+        vec4d v( 9.9999999, -435745.11, 3482922.5434, -11111111 );
+        v.storeNontemporal( vals );
         nm_assert_double( vals[0], 9.9999999 );
         nm_assert_double( vals[1], -435745.11 );
         nm_assert_double( vals[2], 3482922.5434 );

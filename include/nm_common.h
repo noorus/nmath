@@ -6,5 +6,6 @@
 
 #define nmath_16b_align __declspec(align(16))
 #define nmath_32b_align __declspec(align(32))
+#define nmath_inline __forceinline
 
 #endif

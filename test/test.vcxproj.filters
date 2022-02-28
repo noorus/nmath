@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\nmath">
+      <UniqueIdentifier>{c1e122e6-609f-46ff-a2ab-1cd1e338bf3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test.cpp">
@@ -20,8 +23,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\nmath\include\nm_vec4f.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\include\nm_common.h">
+      <Filter>Header Files\nmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\nm_vec4d.h">
+      <Filter>Header Files\nmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\nm_vec4f.h">
+      <Filter>Header Files\nmath</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

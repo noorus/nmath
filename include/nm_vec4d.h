@@ -99,7 +99,7 @@ namespace nmath {
     //! v = a * b
     nmath_inline vec4d operator * ( const double scalar ) const
     {
-      auto im = _mm256_set1_pd( scalar );
+      const auto im = _mm256_set1_pd( scalar );
       return _mm256_mul_pd( packed, im );
     }
     //! v = a * b
@@ -110,7 +110,7 @@ namespace nmath {
     //! v = a / b
     nmath_inline vec4d operator / ( const double scalar ) const
     {
-      auto im = _mm256_set1_pd( scalar );
+      const auto im = _mm256_set1_pd( scalar );
       return _mm256_div_pd( packed, im );
     }
     //! v = a / b
@@ -121,13 +121,13 @@ namespace nmath {
     //! a == b
     nmath_inline bool operator == ( const vec4d& rhs ) const
     {
-      auto ret = _mm256_cmp_pd( packed, rhs.packed, _CMP_NEQ_OS );
+      const auto ret = _mm256_cmp_pd( packed, rhs.packed, _CMP_NEQ_OS );
       return ( _mm256_movemask_pd( ret ) == 0 );
     }
     //! a != b
     nmath_inline bool operator != ( const vec4d& rhs ) const
     {
-      auto ret = _mm256_cmp_pd( packed, rhs.packed, _CMP_NEQ_OS );
+      const auto ret = _mm256_cmp_pd( packed, rhs.packed, _CMP_NEQ_OS );
       return ( _mm256_movemask_pd( ret ) != 0 );
     }
     //! v = round(a)
@@ -158,10 +158,10 @@ namespace nmath {
     //! f = x + y + z + w
     nmath_inline double sum() const
     {
-      auto hadd = _mm256_hadd_pd( packed, packed );
-      auto hi = _mm256_extractf128_pd( hadd, 1 );
-      auto lo = _mm256_castpd256_pd128( hadd );
-      auto ret = _mm_add_sd( lo, hi );
+      const auto hadd = _mm256_hadd_pd( packed, packed );
+      const auto hi = _mm256_extractf128_pd( hadd, 1 );
+      const auto lo = _mm256_castpd256_pd128( hadd );
+      const auto ret = _mm_add_sd( lo, hi );
       return _mm_cvtsd_f64( ret );
     }
     //! v = a * b + c (fused multiply & add)

@@ -99,7 +99,7 @@ namespace nmath {
     //! v = a * b
     nmath_inline vec4f operator * ( const float scalar ) const
     {
-      auto im = _mm_set1_ps( scalar );
+      const auto im = _mm_set1_ps( scalar );
       return _mm_mul_ps( packed, im );
     }
     //! v = a * b
@@ -110,7 +110,7 @@ namespace nmath {
     //! v = a / b
     nmath_inline vec4f operator / ( const float scalar ) const
     {
-      auto im = _mm_set1_ps( scalar );
+      const auto im = _mm_set1_ps( scalar );
       return _mm_div_ps( packed, im );
     }
     //! v = a / b
@@ -121,13 +121,13 @@ namespace nmath {
     //! a == b
     nmath_inline bool operator == ( const vec4f& rhs ) const
     {
-      auto ret = _mm_cmp_ps( packed, rhs.packed, _CMP_NEQ_OS );
+      const auto ret = _mm_cmp_ps( packed, rhs.packed, _CMP_NEQ_OS );
       return ( _mm_movemask_ps( ret ) == 0 );
     }
     //! a != b
     nmath_inline bool operator != ( const vec4f& rhs ) const
     {
-      auto ret = _mm_cmp_ps( packed, rhs.packed, _CMP_NEQ_OS );
+      const auto ret = _mm_cmp_ps( packed, rhs.packed, _CMP_NEQ_OS );
       return ( _mm_movemask_ps( ret ) != 0 );
     }
     //! v = round(a)
@@ -158,8 +158,9 @@ namespace nmath {
     //! f = x + y + z + w
     nmath_inline float sum() const
     {
-      auto tmp = _mm_hadd_ps( packed, packed );
-      auto ret = _mm_hadd_ps( tmp, tmp );
+      // hadd_ps used to be discouraged, dunno what the consensus is today.
+      const auto tmp = _mm_hadd_ps( packed, packed );
+      const auto ret = _mm_hadd_ps( tmp, tmp );
       return _mm_cvtss_f32( ret );
     }
     //! v = a * b + c (fused multiply & add)

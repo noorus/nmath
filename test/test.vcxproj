@@ -17,6 +17,7 @@
     <ClInclude Include="..\include\nm_common.h" />
     <ClInclude Include="..\include\nm_vec4d.h" />
     <ClInclude Include="..\include\nm_vec4f.h" />
+    <ClInclude Include="..\include\nm_vec8f.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

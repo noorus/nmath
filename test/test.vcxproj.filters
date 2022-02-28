@@ -32,5 +32,8 @@
     <ClInclude Include="..\include\nm_vec4f.h">
       <Filter>Header Files\nmath</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\nm_vec8f.h">
+      <Filter>Header Files\nmath</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

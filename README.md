@@ -8,3 +8,17 @@ Some parts are practically just wrappers for STL or CRT functions, but I still p
 nmath is licensed under the MIT license.
 
 nmath's SIMD functionality does not use AVX512 instructions, as the end-user hardware adoption for those is way too poor to make sense in any general use.
+
+### nmath currently implements
+- `vec4f` 128-bit 4x float SIMD vector
+- `vec8f` 256-bit 8x float SIMD vector
+- `vec4d` 256-bit 4x double SIMD vector
+
+### common members
+- construct from aligned or unaligned mem values, given scalars or default to zero
+- temporal & nontemporal load & store
+- plus, minus, and, or, xor, multiply, divide, equality, inequality operators
+- componentwise round, ceil, floor, trunc
+- componentwise sqrt
+- sum of elements
+- fused multiply & add, fused multiply & sub
